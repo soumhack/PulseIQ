@@ -1,0 +1,403 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  #piq{font-family:'Inter',sans-serif;background:#fff;color:#1a1a1a;width:100%;}
+
+  /* NAV */
+  .piq-nav{background:#C74634;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:52px;}
+  .piq-logo{color:#fff;font-size:15px;font-weight:600;letter-spacing:-.3px;display:flex;align-items:center;gap:8px;}
+  .piq-logo-dot{width:8px;height:8px;background:#fff;border-radius:50%;opacity:.7;}
+  .piq-nav-links{display:flex;gap:20px;}
+  .piq-nav-links a{color:rgba(255,255,255,.85);font-size:12px;text-decoration:none;letter-spacing:.3px;}
+  .piq-nav-links a:hover{color:#fff;}
+  .piq-nav-cta{background:#fff;color:#C74634;font-size:12px;font-weight:500;padding:6px 14px;border-radius:4px;text-decoration:none;white-space:nowrap;}
+
+  /* BREADCRUMB */
+  .piq-breadcrumb{background:#f7f7f7;padding:8px 32px;font-size:11px;color:#888;border-bottom:1px solid #e8e8e8;}
+  .piq-breadcrumb span{color:#C74634;}
+
+  /* HERO */
+  .piq-hero{background:#C74634;padding:52px 32px 48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+  .piq-hero-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:12px;}
+  .piq-hero h1{font-size:30px;font-weight:600;color:#fff;line-height:1.25;margin-bottom:16px;}
+  .piq-hero-sub{font-size:14px;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:28px;}
+  .piq-hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn-white{background:#fff;color:#C74634;font-size:13px;font-weight:500;padding:10px 20px;border-radius:4px;text-decoration:none;border:none;cursor:pointer;}
+  .btn-outline{background:transparent;color:#fff;font-size:13px;font-weight:400;padding:10px 20px;border-radius:4px;text-decoration:none;border:1px solid rgba(255,255,255,.5);cursor:pointer;}
+  .btn-outline:hover{border-color:#fff;}
+
+  /* HERO VISUAL */
+  .piq-hero-visual{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:20px;}
+  .hv-label{font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:14px;}
+  .hv-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .hv-stat{background:rgba(255,255,255,.1);border-radius:6px;padding:12px 14px;}
+  .hv-stat-val{font-size:22px;font-weight:600;color:#fff;display:block;}
+  .hv-stat-label{font-size:10px;color:rgba(255,255,255,.6);margin-top:2px;display:block;}
+  .hv-divider{border:none;border-top:1px solid rgba(255,255,255,.1);margin:14px 0;}
+  .hv-pipe{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .hv-pipe-node{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:4px;padding:4px 10px;font-size:10px;color:rgba(255,255,255,.85);white-space:nowrap;}
+  .hv-pipe-arrow{color:rgba(255,255,255,.4);font-size:12px;}
+
+  /* BANNER STRIP */
+  .piq-banner{background:#1a1a1a;padding:16px 32px;display:flex;align-items:center;gap:16px;}
+  .piq-banner-badge{background:#C74634;color:#fff;font-size:10px;font-weight:600;padding:3px 10px;border-radius:3px;letter-spacing:.5px;white-space:nowrap;}
+  .piq-banner p{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5;}
+  .piq-banner a{color:#f5a58a;text-decoration:underline;font-size:13px;}
+
+  /* SECTION LABEL */
+  .piq-section{padding:52px 32px;}
+  .piq-section-alt{background:#f9f9f9;}
+  .piq-section h2{font-size:22px;font-weight:600;color:#1a1a1a;margin-bottom:8px;}
+  .piq-section-intro{font-size:14px;color:#555;line-height:1.7;max-width:600px;margin-bottom:36px;}
+
+  /* FEATURE ROWS */
+  .feat-row{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:44px;padding-bottom:44px;border-bottom:1px solid #ebebeb;}
+  .feat-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .feat-row.reverse{direction:rtl;}
+  .feat-row.reverse > *{direction:ltr;}
+  .feat-eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C74634;margin-bottom:8px;font-weight:500;}
+  .feat-row h3{font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:10px;line-height:1.4;}
+  .feat-row p{font-size:13px;color:#555;line-height:1.75;margin-bottom:16px;}
+  .feat-link{color:#C74634;font-size:13px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:4px;}
+  .feat-link:hover{text-decoration:underline;}
+
+  /* FEATURE VISUAL PANEL */
+  .feat-visual{background:#f4f4f4;border-radius:8px;padding:20px;border:1px solid #e8e8e8;}
+  .fv-header{font-size:10px;letter-spacing:1.5px;color:#888;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .fv-dot{width:6px;height:6px;background:#C74634;border-radius:50%;}
+  .fv-row{display:flex;align-items:center;gap:10px;padding:9px 12px;background:#fff;border-radius:6px;border:1px solid #e8e8e8;margin-bottom:8px;}
+  .fv-icon{font-size:16px;color:#C74634;width:20px;text-align:center;}
+  .fv-text{font-size:12px;color:#333;flex:1;}
+  .fv-badge{font-size:10px;background:#C74634;color:#fff;padding:2px 8px;border-radius:3px;white-space:nowrap;}
+  .fv-badge-green{background:#2a7a4b;}
+  .fv-badge-gray{background:#888;}
+  .fv-chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+  .fv-chip{background:#fff;border:1px solid #ddd;border-radius:4px;padding:4px 10px;font-size:11px;color:#444;}
+  .fv-metric-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:4px;}
+  .fv-metric{background:#fff;border-radius:6px;border:1px solid #e8e8e8;padding:10px;text-align:center;}
+  .fv-metric-val{font-size:18px;font-weight:600;color:#C74634;display:block;}
+  .fv-metric-label{font-size:10px;color:#888;margin-top:2px;}
+
+  /* TESTIMONIAL */
+  .piq-testimonial{background:#C74634;padding:48px 32px;}
+  .piq-testimonial blockquote{font-size:17px;font-weight:300;color:#fff;line-height:1.7;max-width:700px;margin:0 auto 20px;text-align:center;font-style:italic;}
+  .piq-testimonial cite{display:block;text-align:center;font-size:12px;color:rgba(255,255,255,.7);font-style:normal;}
+  .piq-testimonial cite strong{color:#fff;display:block;font-size:13px;margin-bottom:2px;}
+
+  /* CARDS GRID */
+  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .piq-card{background:#fff;border:1px solid #e8e8e8;border-radius:8px;padding:20px;cursor:pointer;transition:border-color .2s;}
+  .piq-card:hover{border-color:#C74634;}
+  .piq-card-eyebrow{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#C74634;margin-bottom:8px;}
+  .piq-card h3{font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:8px;line-height:1.4;}
+  .piq-card p{font-size:12px;color:#666;line-height:1.6;}
+  .piq-card-footer{margin-top:14px;font-size:12px;color:#C74634;font-weight:500;}
+
+  /* OUTCOMES STRIP */
+  .outcomes-strip{background:#1a1a1a;padding:36px 32px;}
+  .outcomes-strip h2{font-size:18px;font-weight:600;color:#fff;margin-bottom:24px;text-align:center;}
+  .outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+  .outcome-cell{background:#222;padding:20px;text-align:center;}
+  .outcome-cell:first-child{border-radius:8px 0 0 8px;}
+  .outcome-cell:last-child{border-radius:0 8px 8px 0;}
+  .oc-val{font-size:26px;font-weight:600;color:#f5a58a;display:block;}
+  .oc-label{font-size:11px;color:rgba(255,255,255,.55);margin-top:4px;}
+
+  /* FOOTER CTA */
+  .piq-footer-cta{padding:48px 32px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;border-top:1px solid #e8e8e8;}
+  .fcta-block h3{font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:8px;}
+  .fcta-block p{font-size:12px;color:#666;line-height:1.65;margin-bottom:14px;}
+  .btn-red{background:#C74634;color:#fff;font-size:13px;font-weight:500;padding:9px 18px;border-radius:4px;text-decoration:none;border:none;cursor:pointer;display:inline-block;}
+  .btn-red-outline{background:transparent;color:#C74634;font-size:13px;font-weight:500;padding:9px 18px;border-radius:4px;text-decoration:none;border:1px solid #C74634;display:inline-block;}
+
+  /* BOTTOM BAR */
+  .piq-bottom{background:#C74634;padding:12px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .piq-bottom p{font-size:11px;color:rgba(255,255,255,.65);}
+  .piq-bottom-links{display:flex;gap:16px;}
+  .piq-bottom-links a{font-size:11px;color:rgba(255,255,255,.65);text-decoration:none;}
+  .piq-bottom-links a:hover{color:#fff;}
+
+  /* POWERED BY */
+  .powered-row{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap;}
+  .powered-chip{background:#f4f4f4;border:1px solid #e0e0e0;border-radius:4px;padding:3px 10px;font-size:10px;color:#555;font-weight:500;}
+</style>
+
+<div id="piq">
+  <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">PulseIQ — Real-Time Cruise Experience Continuity Platform product page</h2>
+
+  <!-- NAV -->
+  <nav class="piq-nav">
+    <div class="piq-logo"><div class="piq-logo-dot"></div>Pulse<span style="font-weight:300">IQ</span></div>
+    <div class="piq-nav-links">
+      <a href="#">Solutions</a>
+      <a href="#">Platform</a>
+      <a href="#">AI Copilot</a>
+      <a href="#">Analytics</a>
+      <a href="#">Customer stories</a>
+    </div>
+    <a href="#" class="piq-nav-cta">Request a demo</a>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="piq-breadcrumb">Oracle &rsaquo; Industries &rsaquo; Hospitality &rsaquo; <span>PulseIQ Cruise Platform</span></div>
+
+  <!-- HERO -->
+  <section class="piq-hero">
+    <div>
+      <div class="piq-hero-eyebrow">Real-time cruise experience continuity</div>
+      <h1>The operational backbone for modern cruise operations</h1>
+      <p class="piq-hero-sub">PulseIQ unifies guest data, crew operations, inventory, and port logistics into a single real-time platform — powered by Oracle Database@Azure and AI-driven Customer 360 Copilot.</p>
+      <div class="piq-hero-btns">
+        <a href="#" class="btn-white">Request a demo</a>
+        <a href="#" class="btn-outline">Watch the overview</a>
+      </div>
+      <div class="powered-row" style="margin-top:20px;">
+        <span style="font-size:11px;color:rgba(255,255,255,.5);">Powered by</span>
+        <span class="powered-chip">Oracle Database@Azure</span>
+        <span class="powered-chip">Oracle GoldenGate</span>
+        <span class="powered-chip">Microsoft Fabric</span>
+      </div>
+    </div>
+    <div class="piq-hero-visual">
+      <div class="hv-label">Live fleet dashboard</div>
+      <div class="hv-stats">
+        <div class="hv-stat"><span class="hv-stat-val">24</span><span class="hv-stat-label">Ships online</span></div>
+        <div class="hv-stat"><span class="hv-stat-val">98.7%</span><span class="hv-stat-label">Guest satisfaction</span></div>
+        <div class="hv-stat"><span class="hv-stat-val">142K</span><span class="hv-stat-label">Events / minute</span></div>
+        <div class="hv-stat"><span class="hv-stat-val">4.9★</span><span class="hv-stat-label">Avg voyage rating</span></div>
+      </div>
+      <hr class="hv-divider">
+      <div style="font-size:10px;color:rgba(255,255,255,.45);letter-spacing:1px;margin-bottom:8px;text-transform:uppercase;">Data pipeline</div>
+      <div class="hv-pipe">
+        <div class="hv-pipe-node">Guest Apps</div>
+        <div class="hv-pipe-arrow">→</div>
+        <div class="hv-pipe-node">Event Hub</div>
+        <div class="hv-pipe-arrow">→</div>
+        <div class="hv-pipe-node">Oracle DB@Azure</div>
+        <div class="hv-pipe-arrow">→</div>
+        <div class="hv-pipe-node">AI Copilot</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER -->
+  <div class="piq-banner">
+    <div class="piq-banner-badge">NEW</div>
+    <p>PulseIQ Customer 360 Copilot now features autonomous AI agents for proactive service recovery and upsell recommendations. <a href="#">Learn more →</a></p>
+  </div>
+
+  <!-- SECTION 1: CREATE EXCEPTIONAL EXPERIENCES -->
+  <section class="piq-section">
+    <h2>Create exceptional guest experiences</h2>
+    <p class="piq-section-intro">Equip your crew with real-time guest intelligence, unified operational data, and AI-powered tools that transform every interaction into a memorable moment.</p>
+
+    <div class="feat-row">
+      <div>
+        <div class="feat-eyebrow">Customer 360 Copilot</div>
+        <h3>Know every guest, at every moment</h3>
+        <p>PulseIQ Copilot surfaces a complete guest profile — loyalty tier, voyage history, dining preferences, active service requests, and satisfaction scores — in a single conversational interface. AI agents automatically recommend the next best action for your crew.</p>
+        <a href="#" class="feat-link">Explore Customer 360 Copilot <i class="ti ti-arrow-right" style="font-size:13px" aria-hidden="true"></i></a>
+      </div>
+      <div class="feat-visual">
+        <div class="fv-header"><div class="fv-dot"></div>PulseIQ Copilot — Sarah Johnson</div>
+        <div class="fv-row">
+          <i class="ti ti-star fv-icon" aria-hidden="true"></i>
+          <span class="fv-text">Loyalty tier</span>
+          <span class="fv-badge">Platinum</span>
+        </div>
+        <div class="fv-row">
+          <i class="ti ti-ship fv-icon" aria-hidden="true"></i>
+          <span class="fv-text">Cruise history</span>
+          <span class="fv-badge fv-badge-gray">12 voyages</span>
+        </div>
+        <div class="fv-row">
+          <i class="ti ti-leaf fv-icon" aria-hidden="true"></i>
+          <span class="fv-text">Dining preference</span>
+          <span class="fv-badge fv-badge-gray">Vegetarian</span>
+        </div>
+        <div class="fv-row" style="background:#fff8f7;border-color:#f5c4b3;">
+          <i class="ti ti-bulb fv-icon" aria-hidden="true"></i>
+          <span class="fv-text" style="color:#7a2a1a;font-size:11px;">AI recommends: offer complimentary concierge + premium dining upgrade</span>
+          <span class="fv-badge fv-badge-green">Act</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-row reverse">
+      <div>
+        <div class="feat-eyebrow">Unified operations</div>
+        <h3>One platform for every shipboard domain</h3>
+        <p>From housekeeping schedules and inventory movements to financial reconciliation and port readiness — PulseIQ consolidates all operational data into a single Oracle-powered source of truth, giving department heads and executives a live view of the entire fleet.</p>
+        <a href="#" class="feat-link">Explore unified operations <i class="ti ti-arrow-right" style="font-size:13px" aria-hidden="true"></i></a>
+      </div>
+      <div class="feat-visual">
+        <div class="fv-header"><div class="fv-dot"></div>Operational domains — live</div>
+        <div class="fv-chip-row">
+          <span class="fv-chip"><i class="ti ti-users" style="font-size:12px;margin-right:4px" aria-hidden="true"></i>Guest ops</span>
+          <span class="fv-chip"><i class="ti ti-id-badge" style="font-size:12px;margin-right:4px" aria-hidden="true"></i>Crew mgmt</span>
+          <span class="fv-chip"><i class="ti ti-box" style="font-size:12px;margin-right:4px" aria-hidden="true"></i>Inventory</span>
+          <span class="fv-chip"><i class="ti ti-tool" style="font-size:12px;margin-right:4px" aria-hidden="true"></i>Maintenance</span>
+          <span class="fv-chip"><i class="ti ti-cash" style="font-size:12px;margin-right:4px" aria-hidden="true"></i>Finance</span>
+          <span class="fv-chip"><i class="ti ti-anchor" style="font-size:12px;margin-right:4px" aria-hidden="true"></i>Port ops</span>
+        </div>
+        <div class="fv-metric-row" style="margin-top:14px;">
+          <div class="fv-metric"><span class="fv-metric-val">0 ms</span><div class="fv-metric-label">Replication lag</div></div>
+          <div class="fv-metric"><span class="fv-metric-val">99.99%</span><div class="fv-metric-label">Uptime SLA</div></div>
+          <div class="fv-metric"><span class="fv-metric-val">6</span><div class="fv-metric-label">Domains unified</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-row">
+      <div>
+        <div class="feat-eyebrow">Real-time analytics</div>
+        <h3>Base every decision on live operational data</h3>
+        <p>Oracle GoldenGate replicates transactional data in real time into Azure OneLake and Microsoft Fabric. Executive dashboards surface fleet visibility, revenue analytics, sustainability metrics, and guest satisfaction scores — refreshed continuously, not at end-of-day.</p>
+        <a href="#" class="feat-link">Explore analytics and intelligence <i class="ti ti-arrow-right" style="font-size:13px" aria-hidden="true"></i></a>
+      </div>
+      <div class="feat-visual">
+        <div class="fv-header"><div class="fv-dot"></div>Executive fleet dashboard</div>
+        <div class="fv-row">
+          <i class="ti ti-chart-bar fv-icon" aria-hidden="true"></i>
+          <span class="fv-text">Revenue vs. target</span>
+          <span class="fv-badge fv-badge-green">+18% YTD</span>
+        </div>
+        <div class="fv-row">
+          <i class="ti ti-fuel fv-icon" aria-hidden="true"></i>
+          <span class="fv-text">Fuel consumption</span>
+          <span class="fv-badge fv-badge-green">−22% vs last yr</span>
+        </div>
+        <div class="fv-row">
+          <i class="ti ti-map-pin fv-icon" aria-hidden="true"></i>
+          <span class="fv-text">Port readiness</span>
+          <span class="fv-badge">100% on-time</span>
+        </div>
+        <div class="fv-row">
+          <i class="ti ti-heart fv-icon" aria-hidden="true"></i>
+          <span class="fv-text">Guest satisfaction index</span>
+          <span class="fv-badge fv-badge-green">4.9 / 5.0</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="piq-testimonial">
+    <blockquote>"PulseIQ gave us a single view of every guest across all 24 ships. Our crew stopped guessing and started delivering — proactively. The AI Copilot alone has driven a measurable lift in onboard revenue and a meaningful drop in service escalations."</blockquote>
+    <cite><strong>Marika Lindström</strong>Chief Operations Officer, Nordic Voyages International</cite>
+  </section>
+
+  <!-- SECTION 2: PLATFORM SECTION -->
+  <section class="piq-section piq-section-alt">
+    <h2>The technology behind PulseIQ</h2>
+    <p class="piq-section-intro">Built on Oracle Database@Azure with enterprise-grade security, sub-millisecond replication, and an open integration layer — so you can connect existing systems without ripping anything out.</p>
+    <div class="cards-grid">
+      <div class="piq-card">
+        <div class="piq-card-eyebrow">Core database</div>
+        <h3>Oracle Database@Azure</h3>
+        <p>Fully managed Oracle Database running natively on Azure infrastructure — delivering the ACID guarantees, RAC clustering, and 99.99% uptime cruise operators depend on.</p>
+        <div class="piq-card-footer">Explore the platform →</div>
+      </div>
+      <div class="piq-card">
+        <div class="piq-card-eyebrow">Real-time replication</div>
+        <h3>Oracle GoldenGate</h3>
+        <p>Zero-lag change-data capture streams every transactional event to Azure OneLake and Microsoft Fabric — keeping analytics, AI models, and operational reports in sync.</p>
+        <div class="piq-card-footer">Explore GoldenGate →</div>
+      </div>
+      <div class="piq-card">
+        <div class="piq-card-eyebrow">AI agents</div>
+        <h3>Customer 360 Copilot</h3>
+        <p>Conversational AI that combines guest profiles, operational data, and predictive models to recommend the next best action for every crew member, in real time.</p>
+        <div class="piq-card-footer">Explore Copilot →</div>
+      </div>
+      <div class="piq-card">
+        <div class="piq-card-eyebrow">Ingestion layer</div>
+        <h3>Azure Event Hub &amp; Service Bus</h3>
+        <p>Handles millions of events per minute from guest apps, POS terminals, vessel telemetry, and port systems — reliably and at scale, with no data loss.</p>
+        <div class="piq-card-footer">Explore integrations →</div>
+      </div>
+      <div class="piq-card">
+        <div class="piq-card-eyebrow">Enterprise analytics</div>
+        <h3>Microsoft Fabric + OneLake</h3>
+        <p>Operational data flows directly into Fabric for fleet-wide reporting, predictive maintenance models, sustainability tracking, and executive BI dashboards.</p>
+        <div class="piq-card-footer">Explore analytics →</div>
+      </div>
+      <div class="piq-card">
+        <div class="piq-card-eyebrow">Open integration</div>
+        <h3>PulseIQ Integration Platform</h3>
+        <p>Pre-built connectors for loyalty systems, ERP, CRM, crew management, port scheduling, and 200+ hospitality technology partners — deploy in weeks, not months.</p>
+        <div class="piq-card-footer">Explore connectors →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES STRIP -->
+  <div class="outcomes-strip">
+    <h2>Measured outcomes across the fleet</h2>
+    <div class="outcomes-grid">
+      <div class="outcome-cell"><span class="oc-val">↑ 31%</span><div class="oc-label">Guest satisfaction score</div></div>
+      <div class="outcome-cell"><span class="oc-val">↑ 18%</span><div class="oc-label">Onboard revenue per guest</div></div>
+      <div class="outcome-cell"><span class="oc-val">↓ 44%</span><div class="oc-label">Service escalations</div></div>
+      <div class="outcome-cell"><span class="oc-val">↑ 27%</span><div class="oc-label">Crew productivity</div></div>
+      <div class="outcome-cell"><span class="oc-val">↓ 22%</span><div class="oc-label">Fuel &amp; operational costs</div></div>
+      <div class="outcome-cell"><span class="oc-val">99.99%</span><div class="oc-label">Platform uptime SLA</div></div>
+    </div>
+  </div>
+
+  <!-- CUSTOMER STORIES -->
+  <section class="piq-section">
+    <h2>How cruise operators are transforming with PulseIQ</h2>
+    <p class="piq-section-intro">From independent cruise lines to global fleet operators — see how real-time intelligence is reshaping the guest experience.</p>
+    <div class="cards-grid">
+      <div class="piq-card">
+        <div class="piq-card-eyebrow">Case study</div>
+        <h3>Nordic Voyages International</h3>
+        <p>Unified 24 ships onto a single PulseIQ platform, eliminating siloed systems and reducing guest complaint resolution time from 4 hours to under 12 minutes.</p>
+        <div class="piq-card-footer">Read the story →</div>
+      </div>
+      <div class="piq-card">
+        <div class="piq-card-eyebrow">Case study</div>
+        <h3>Pacific Premier Cruises</h3>
+        <p>Deployed Customer 360 Copilot fleet-wide and saw a 23% increase in premium upsell conversion within the first 90 days of rollout.</p>
+        <div class="piq-card-footer">Read the story →</div>
+      </div>
+      <div class="piq-card">
+        <div class="piq-card-eyebrow">Case study</div>
+        <h3>Adriatica Luxury Lines</h3>
+        <p>Real-time GoldenGate replication enabled executives to move from weekly reports to live fleet dashboards, accelerating strategic decisions by an order of magnitude.</p>
+        <div class="piq-card-footer">Read the story →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <div class="piq-footer-cta" style="background:#f9f9f9;">
+    <div class="fcta-block">
+      <h3>See PulseIQ in action</h3>
+      <p>Book a personalized demo tailored to your fleet size, operational priorities, and technology environment.</p>
+      <a href="#" class="btn-red">Request a demo</a>
+    </div>
+    <div class="fcta-block">
+      <h3>Talk to a cruise technology expert</h3>
+      <p>Have questions about migrating from a legacy platform, integration complexity, or total cost of ownership? Let's talk.</p>
+      <a href="#" class="btn-red-outline">Contact us</a>
+    </div>
+    <div class="fcta-block">
+      <h3>Download the solution brief</h3>
+      <p>Get the full technical and business overview of PulseIQ, Oracle Database@Azure, and the Customer 360 Copilot in a single document.</p>
+      <a href="#" class="btn-red-outline">Download PDF</a>
+    </div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="piq-bottom">
+    <p>© 2026 Oracle &amp; PulseIQ. All rights reserved.</p>
+    <div class="piq-bottom-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms of use</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Contact us</a>
+    </div>
+  </div>
+</div>
