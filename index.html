@@ -121,6 +121,42 @@
   /* POWERED BY */
   .powered-row{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap;}
   .powered-chip{background:#f4f4f4;border:1px solid #e0e0e0;border-radius:4px;padding:3px 10px;font-size:10px;color:#555;font-weight:500;}
+
+  /* WEATHER ALERT PANEL */
+  .weather-alert-panel{margin-top:14px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.15);border-radius:8px;overflow:hidden;}
+  .wa-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(0,0,0,.2);border-bottom:1px solid rgba(255,255,255,.1);}
+  .wa-title{display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.85);font-weight:600;}
+  .wa-live{display:flex;align-items:center;gap:5px;font-size:9px;color:#f5a58a;letter-spacing:.5px;text-transform:uppercase;}
+  .wa-pulse{width:7px;height:7px;background:#f5a58a;border-radius:50%;animation:waPulse 1.4s ease-in-out infinite;}
+  @keyframes waPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+  .wa-body{padding:10px 14px 12px;}
+  .wa-alert{display:flex;align-items:flex-start;gap:9px;padding:8px 10px;border-radius:6px;margin-bottom:7px;cursor:pointer;transition:opacity .15s;}
+  .wa-alert:last-child{margin-bottom:0;}
+  .wa-alert:hover{opacity:.85;}
+  .wa-alert.critical{background:rgba(220,60,30,.22);border:1px solid rgba(220,60,30,.45);}
+  .wa-alert.warning{background:rgba(240,160,40,.18);border:1px solid rgba(240,160,40,.4);}
+  .wa-alert.advisory{background:rgba(80,160,220,.15);border:1px solid rgba(80,160,220,.35);}
+  .wa-alert-icon{font-size:15px;margin-top:1px;flex-shrink:0;}
+  .wa-alert.critical .wa-alert-icon{color:#ff7055;}
+  .wa-alert.warning .wa-alert-icon{color:#ffc04a;}
+  .wa-alert.advisory .wa-alert-icon{color:#72c0f0;}
+  .wa-alert-content{flex:1;min-width:0;}
+  .wa-alert-top{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:3px;}
+  .wa-alert-name{font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .wa-alert-tag{font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;letter-spacing:.5px;text-transform:uppercase;flex-shrink:0;}
+  .wa-alert.critical .wa-alert-tag{background:rgba(220,60,30,.6);color:#ffcfc5;}
+  .wa-alert.warning .wa-alert-tag{background:rgba(200,130,0,.5);color:#ffe5a0;}
+  .wa-alert.advisory .wa-alert-tag{background:rgba(40,120,200,.45);color:#b8e0ff;}
+  .wa-alert-desc{font-size:10px;color:rgba(255,255,255,.65);line-height:1.5;}
+  .wa-alert-meta{display:flex;align-items:center;gap:10px;margin-top:5px;}
+  .wa-alert-ship{font-size:9px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:3px;}
+  .wa-alert-action{font-size:9px;font-weight:600;color:#f5a58a;text-decoration:none;margin-left:auto;}
+  .wa-footer{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;background:rgba(0,0,0,.15);border-top:1px solid rgba(255,255,255,.08);}
+  .wa-footer-note{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.3px;}
+  .wa-footer-link{font-size:9px;color:#f5a58a;font-weight:500;text-decoration:none;}
+  .wa-footer-link:hover{text-decoration:underline;}
+  .wa-route-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(245,165,138,.15);border:1px solid rgba(245,165,138,.3);border-radius:3px;padding:2px 7px;font-size:9px;color:#f5a58a;font-weight:600;letter-spacing:.3px;}
+
 </style>
 
 <div id="piq">
@@ -178,6 +214,72 @@
         <div class="hv-pipe-arrow">→</div>
         <div class="hv-pipe-node">AI Copilot</div>
       </div>
+
+      <!-- WEATHER ALERT PANEL -->
+      <div class="weather-alert-panel">
+        <div class="wa-header">
+          <div class="wa-title">
+            ⛵ Marine Ops · Weather Alerts
+          </div>
+          <div class="wa-live"><div class="wa-pulse"></div>24 / 7 Live</div>
+        </div>
+        <div class="wa-body">
+
+          <!-- CRITICAL -->
+          <div class="wa-alert critical">
+            <div class="wa-alert-icon">🌀</div>
+            <div class="wa-alert-content">
+              <div class="wa-alert-top">
+                <div class="wa-alert-name">Tropical Storm Beta — Caribbean</div>
+                <div class="wa-alert-tag">Critical</div>
+              </div>
+              <div class="wa-alert-desc">Sustained winds 75 kt · Swell 5–7 m · ETA 14 h. Immediate re-route recommended — avoid 200 nm radius.</div>
+              <div class="wa-alert-meta">
+                <div class="wa-alert-ship">🚢 MS Nordic Star · MS Aurora Bay</div>
+                <a href="#" class="wa-alert-action">Re-route now →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- WARNING -->
+          <div class="wa-alert warning">
+            <div class="wa-alert-icon">⚡</div>
+            <div class="wa-alert-content">
+              <div class="wa-alert-top">
+                <div class="wa-alert-name">Heavy Seas — North Atlantic</div>
+                <div class="wa-alert-tag">Warning</div>
+              </div>
+              <div class="wa-alert-desc">Wave heights 3–4 m · Wind gusts 45 kt · Fog advisory in effect through 06:00 UTC.</div>
+              <div class="wa-alert-meta">
+                <div class="wa-alert-ship">🚢 MS Adriatica Pearl</div>
+                <a href="#" class="wa-alert-action">View alternatives →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADVISORY -->
+          <div class="wa-alert advisory">
+            <div class="wa-alert-icon">🌦️</div>
+            <div class="wa-alert-content">
+              <div class="wa-alert-top">
+                <div class="wa-alert-name">Port Delay — Nassau, Bahamas</div>
+                <div class="wa-alert-tag">Advisory</div>
+              </div>
+              <div class="wa-alert-desc">Harbour swell 1.8 m · Berth 4 restricted. Expected clearance 09:30 local. Ops centre notified.</div>
+              <div class="wa-alert-meta">
+                <div class="wa-alert-ship">🚢 MS Pacific Horizon</div>
+                <a href="#" class="wa-alert-action">Notify guests →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="wa-footer">
+          <div class="wa-footer-note">Data: NOAA · ECMWF · WMO · Updated 2 min ago</div>
+          <a href="#" class="wa-footer-link">Open Marine Ops Console →</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -285,7 +387,7 @@
   <!-- TESTIMONIAL -->
   <section class="piq-testimonial">
     <blockquote>"PulseIQ gave us a single view of every guest across all 24 ships. Our crew stopped guessing and started delivering — proactively. The AI Copilot alone has driven a measurable lift in onboard revenue and a meaningful drop in service escalations."</blockquote>
-    <cite><strong>Marika Lindström</strong>Chief Operations Officer, Nordic Voyages International</cite>
+    <cite><strong>Edwin Upson</strong></cite>
   </section>
 
   <!-- SECTION 2: PLATFORM SECTION -->
